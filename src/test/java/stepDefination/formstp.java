@@ -9,6 +9,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import io.cucumber.java.en.*;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
+import org.openqa.selenium.chrome.ChromeOptions;
 import pageObjects.form;
 
 public class formstp {
@@ -18,6 +19,20 @@ public class formstp {
 	@Given("the user opens the browser and navigates to the URL")
 	public void the_user_opens_the_browser_and_navigates_to_the_url() {
 		WebDriverManager.chromedriver().setup();
+		ChromeOptions options = new ChromeOptions();
+
+		// If running in CI (GitHub Actions), run headless
+		if (System.getenv("CI") != null) {
+			options.addArguments("--headless=new");
+			options.addArguments("--no-sandbox");
+			options.addArguments("--disable-dev-shm-usage");
+			options.addArguments("--window-size=1920,1080");
+		}
+
+		driver = new ChromeDriver(options);
+
+		formfillupForm = new form(driver);
+
 		driver = new ChromeDriver();
 		formfillupForm = new form(driver);
 		driver.manage().window().maximize();
