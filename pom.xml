@@ -73,7 +73,7 @@
 			<version>4.27.0</version>
 		</dependency>
 
-		<!-- WebDriverManager (auto driver management) -->
+		<!-- WebDriverManager (auto driver managements) -->
 		<dependency>
 			<groupId>io.github.bonigarcia</groupId>
 			<artifactId>webdrivermanager</artifactId>
