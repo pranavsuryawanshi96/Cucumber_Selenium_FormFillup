@@ -73,7 +73,7 @@
 				<configuration>
 					<includes>
 						<!-- Your runner file must end with Test -->
-						<include>**/*Test.java</include>
+						<include>**/runner.java</include>
 					</includes>
 				</configuration>
 			</plugin>
