@@ -20,5 +20,25 @@ jobs:
           distribution: 'temurin'
           cache: maven
 
-      - name: 📦 Build & Test
+      - name: 📦 Build & Run Tests
+        id: test
+        continue-on-error: true
         run: mvn clean test
+
+      - name: 📊 Print Test Summary
+        run: |
+          echo "--------------------------------------"
+          echo "🧪 Test Summary"
+          grep -r "Tests run:" target/surefire-reports/ || true
+          echo "--------------------------------------"
+
+      - name: 📤 Upload Test Reports
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: surefire-reports
+          path: target/surefire-reports
+
+      - name: ❌ Fail Job If Tests Failed
+        if: steps.test.outcome == 'failure'
+        run: exit 1
