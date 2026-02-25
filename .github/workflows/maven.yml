@@ -3,7 +3,7 @@ name: ☕ Maven CI
 on:
   pull_request:
     branches: [ main ]
-  workflow_dispatch:   # 👈 This makes "Run workflow" button appear
+  workflow_dispatch:
 
 jobs:
   build:
