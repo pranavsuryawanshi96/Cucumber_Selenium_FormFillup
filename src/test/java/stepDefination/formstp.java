@@ -28,13 +28,10 @@ public class formstp {
 			options.addArguments("--disable-dev-shm-usage");
 			options.addArguments("--window-size=1920,1080");
 		}
-
 		driver = new ChromeDriver(options);
-
 		formfillupForm = new form(driver);
 
-		driver = new ChromeDriver();
-		formfillupForm = new form(driver);
+
 		driver.manage().window().maximize();
 		driver.get("https://v1.training-support.net/selenium/simple-form?");
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(2));
