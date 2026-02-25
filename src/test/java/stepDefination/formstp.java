@@ -34,7 +34,7 @@ public class formstp {
 
 		driver.manage().window().maximize();
 		driver.get("https://v1.training-support.net/selenium/simple-form?");
-		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(2));
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
 		
 	}
 
